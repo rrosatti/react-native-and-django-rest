@@ -1,0 +1,3 @@
+__pycache__/
+polling/db.sqlite3
+polling/polls/migrations/*
