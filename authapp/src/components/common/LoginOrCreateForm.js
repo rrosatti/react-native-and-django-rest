@@ -29,7 +29,26 @@ class LoginOrCreateForm extends Component {
   }
 
   handleRequest() {
-    return null;
+    const endpoint = this.props.create ? 'register' : 'login';
+    const payload = { username: this.state.username, password: this.state.password }
+
+    if (this.props.create) {
+      payload.first_name = this.state.firstName;
+      payload.last_name = this.state.lastName;
+    }
+
+    axios
+      .post(`/auth/${endpoint}`, payload)
+      .then(response => {
+        const { token, user } = response.data;
+
+        // set the returned token as the default auth header
+        axios.defaults.headers.common.Authorization = `Token ${token}`;
+
+        // navigate to the home screen
+        Actions.main();
+      })
+      .catch(error => console.log(error));
   }
 
   renderCreateForm() {
