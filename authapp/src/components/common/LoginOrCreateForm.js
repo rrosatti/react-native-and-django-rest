@@ -28,6 +28,10 @@ class LoginOrCreateForm extends Component {
     this.setState({ lastName: text });
   }
 
+  handleRequest() {
+    return null;
+  }
+
   renderCreateForm() {
     const { fieldStyle, textInputStyle } = style;
     if (this.props.create) {
@@ -68,7 +72,7 @@ class LoginOrCreateForm extends Component {
         <Text style={accountCreateTextStyle}>
           Or
           <Text style={{ color: 'blue' }} onPress={() => Actions.register()}>
-            {'Sign-up'}
+            {' Sign-up'}
           </Text>
         </Text>
       );
@@ -110,7 +114,7 @@ class LoginOrCreateForm extends Component {
         </View>
         <View style={buttonContainerStyle}>
           {this.renderButton()}
-          <View style={accountCreateContainerStyle()}>
+          <View style={accountCreateContainerStyle}>
             {this.renderCreateLink()}
           </View>
         </View>
