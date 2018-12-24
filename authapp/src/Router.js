@@ -39,6 +39,7 @@ const RouterComponent = () => {
             key="home"
             component={Home}
             initial
+          />
         </Stack>
       </Stack>
     </Router>
