@@ -38,7 +38,7 @@ class LoginOrCreateForm extends Component {
     }
 
     axios
-      .post(`/auth/${endpoint}`, payload)
+      .post(`/auth/${endpoint}/`, payload)
       .then(response => {
         const { token, user } = response.data;
 
